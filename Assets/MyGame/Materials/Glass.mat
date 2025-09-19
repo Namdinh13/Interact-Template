@@ -71,6 +71,7 @@ Material:
     - _DstBlend2: 10
     - _InvTilingScale: 1
     - _Ior: 1.01
+    - _Metallic: 0
     - _NormalScale: 1
     - _RefractionModel: 2
     - _Smoothness: 1
@@ -82,7 +83,7 @@ Material:
     - _ZTestDepthEqualForOpaque: 4
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.01886791, g: 0.018333912, b: 0.018333912, a: 0}
+    - _Color: {r: 0.01886791, g: 0.018333912, b: 0.018333912, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
