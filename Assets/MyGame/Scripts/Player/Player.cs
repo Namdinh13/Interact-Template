@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] private float lookRange = 80f;
+    [SerializeField] private Vector3 cameraOriginPosition;
     private float verticalRotation = 0f;
     private Rigidbody rb;
 
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+        cameraOriginPosition = cameraTransform.localPosition;
     }
 
     private void FixedUpdate()
@@ -42,13 +44,14 @@ public class Player : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        Vector3 moveDir = (cameraForward * inputDir.z + cameraRight * inputDir.x).normalized;
+        Vector3 moveDir = (cameraForward * inputDir.z + cameraRight * inputDir.x).normalized * moveSpeed;
+        moveDir.y = rb.linearVelocity.y;
 
         // Di chuyển
         //transform.position += moveDir * moveSpeed;
         //rb.AddForce(moveDir * moveSpeed);
-        rb.linearVelocity = moveDir * moveSpeed;
-
+        rb.linearVelocity = moveDir;
+        cameraTransform.localPosition = cameraOriginPosition;
         //transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
 
