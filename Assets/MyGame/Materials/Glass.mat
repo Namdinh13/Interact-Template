@@ -70,7 +70,7 @@ Material:
     - _DstBlend: 10
     - _DstBlend2: 10
     - _InvTilingScale: 1
-    - _Ior: 1.01
+    - _Ior: 1
     - _Metallic: 0
     - _NormalScale: 1
     - _RefractionModel: 2
